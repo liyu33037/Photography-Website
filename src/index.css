@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter", sans-serif;
+  
+  --color-midnight: #020617;
+  --color-charcoal: #0f172a;
+  --color-cyber-purple: #9333ea;
+  --color-sunset-orange: #f97316;
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-midnight text-slate-50 font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .aurora-bg {
+    background: radial-gradient(circle at 10% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 40%), 
+                radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.15) 0%, transparent 40%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-cyber-purple to-sunset-orange;
+  }
+  
+  .bg-gradient {
+    @apply bg-linear-to-r from-cyber-purple to-sunset-orange;
+  }
+
+  .glass {
+    @apply bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-linear-to-r from-cyber-purple to-sunset-orange text-white border-none transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply border border-white hover:bg-white hover:text-midnight transition-all duration-300;
+  }
+  
+  .mask-overlay {
+    background: linear-gradient(to top, rgba(2, 6, 23, 0.8), transparent);
+  }
+}
+
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-midnight;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
